@@ -2,14 +2,13 @@ package toyMarketApi.toys;
 
 import toyMarketApi.toy.Toy;
 
-import java.util.List;
 import java.util.PriorityQueue;
 
-public interface ToysInterface<E extends Toy> extends Iterable<E> {
+public interface ToysInterface<E extends Toy> {
 
-    List<E> getToys();
+    PriorityQueue<E> getToys();
 
-    PriorityQueue<E> getToysPQ();
+    boolean addToy(E toy);
 
-    <E extends Toy> boolean addToy(E toy);
+    E getToy();
 }

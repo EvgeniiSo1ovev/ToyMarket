@@ -6,4 +6,8 @@ public interface Toy {
     String getName();
 
     int getFrequency();
+
+    boolean setLowFrequency();
+
+    String print();
 }

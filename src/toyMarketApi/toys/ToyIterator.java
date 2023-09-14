@@ -13,9 +13,10 @@ public class ToyIterator<E extends Toy> implements Iterator<E> {
         this.toys = toys;
     }
 
-    public List<E> getToys(){
+    public List<E> getToys() {
         return this.toys;
     }
+
     @Override
     public boolean hasNext() {
         return index < this.getToys().size();
