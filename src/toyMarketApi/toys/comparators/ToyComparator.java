@@ -5,7 +5,7 @@ import toyMarketApi.toy.Toy;
 import java.util.Comparator;
 import java.util.Random;
 
-public class toyComparator<E extends Toy> implements Comparator<E> {
+public class ToyComparator<E extends Toy> implements Comparator<E> {
     @Override
     public int compare(E t1, E t2) {
         int result = t1.getFrequency() > t2.getFrequency() ? 1 : -1;

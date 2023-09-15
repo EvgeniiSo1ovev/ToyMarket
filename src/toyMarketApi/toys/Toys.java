@@ -1,7 +1,7 @@
 package toyMarketApi.toys;
 
 import toyMarketApi.toy.Toy;
-import toyMarketApi.toys.comparators.toyComparator;
+import toyMarketApi.toys.comparators.ToyComparator;
 
 import java.util.PriorityQueue;
 
@@ -9,7 +9,7 @@ public class Toys<E extends Toy> implements ToysInterface<E> {
     private PriorityQueue<E> toys;
 
     public Toys() {
-        this(new PriorityQueue<>(new toyComparator<>()));
+        this(new PriorityQueue<>(new ToyComparator<>()));
     }
 
     public Toys(Toys<E> toys) {

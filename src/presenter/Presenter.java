@@ -13,11 +13,19 @@ public class Presenter {
         view.setPresenter(this);
     }
 
-    public boolean put(int id, String name, int frequency) {
-        return service.put(id, name, frequency);
+    private Service getService() {
+        return this.service;
     }
 
-    public String get() {
-        return service.get();
+    public boolean put(int id, String name, int frequency) {
+        return this.getService().put(id, name, frequency);
+    }
+
+    public String get() throws RuntimeException {
+        return this.getService().get();
+    }
+
+    public boolean saveResults(String fileName) throws RuntimeException {
+        return this.getService().saveResult(fileName);
     }
 }

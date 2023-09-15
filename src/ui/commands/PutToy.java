@@ -10,6 +10,6 @@ public class PutToy extends Command {
 
     @Override
     public boolean execute() {
-        return getConsoleUI().put();
+        return this.getConsoleUI().put();
     }
 }

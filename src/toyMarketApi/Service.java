@@ -1,6 +1,7 @@
 package toyMarketApi;
 
 import presenter.Presenter;
+import toyMarketApi.handler.FileHandler;
 import toyMarketApi.simpleToy.SimpleToy;
 import toyMarketApi.toy.Toy;
 import toyMarketApi.toys.Toys;
@@ -76,5 +77,22 @@ public class Service {
         Toy gettingToy = this.getToy();
         this.getGettingToys().add(gettingToy);
         return gettingToy.print();
+    }
+
+    public boolean saveResult(String fileName) throws RuntimeException {
+        try {
+            return new FileHandler().save(this.gettingToysString(), fileName);
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String gettingToysString() {
+        StringBuilder result = new StringBuilder();
+        LinkedList<Toy> gettingToys = this.getGettingToys();
+        for (Toy gettingToy : gettingToys) {
+            result.append(gettingToy.print());
+        }
+        return result.toString();
     }
 }
