@@ -91,7 +91,7 @@ public class Service {
         StringBuilder result = new StringBuilder();
         LinkedList<Toy> gettingToys = this.getGettingToys();
         for (Toy gettingToy : gettingToys) {
-            result.append(gettingToy.print());
+            result.append(gettingToy.print()).append("\n");
         }
         return result.toString();
     }

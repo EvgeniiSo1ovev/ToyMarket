@@ -42,7 +42,11 @@ public class ConsoleUI implements View {
         if (isCanBeInt(nMenuStr)) {
             int nMenu = Integer.parseInt(nMenuStr);
             if (0 < nMenu && nMenu <= this.getMenu().getSizeMainCommands()) {
-                this.getMenu().executeMainCommands(nMenu);
+                if (this.getMenu().executeMainCommands(nMenu)) {
+                    this.print("Готово!");
+                } else {
+                    this.print("Не выполнено! Где-то ошибка!");
+                }
             } else {
                 print("Введен неверный пункт меню.");
             }
@@ -65,8 +69,26 @@ public class ConsoleUI implements View {
     }
 
     public boolean put() {
-        print("Введите id игрушки:");
-        return this.getPresenter().put();
+        int toyId = requestInt("Введите id игрушки:");
+        String toyName = requestStr("Введите наименование игрушки:");
+        int toyFrequency = requestInt("Введите частоту выпадения игрушки:");
+        return this.getPresenter().put(toyId, toyName, toyFrequency);
+    }
+
+    private int requestInt(String msg) {
+        print(msg);
+        String result = scan();
+        if (isCanBeInt(result)) {
+            return Integer.parseInt(result);
+        } else {
+            print("Введено что-то отличное от целого числа.");
+            return requestInt(msg);
+        }
+    }
+
+    private String requestStr(String msg) {
+        print(msg);
+        return scan();
     }
 
     public boolean get() {

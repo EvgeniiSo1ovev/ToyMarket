@@ -8,7 +8,7 @@ import java.nio.file.Files;
 
 public class FileHandler {
     public boolean save(String saveText, String fileName) throws RuntimeException {
-        if (saveText != null && saveText.trim().isEmpty())
+        if (saveText != null)
             try {
                 File file = new File(fileName);
                 file.createNewFile();
